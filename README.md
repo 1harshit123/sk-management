@@ -1,6 +1,6 @@
 # SK Management
 
-A responsive, presentation-only React website for SK Management / Le Grande Aura Hotel Group. Built with React and Vite, with CSS transitions, scroll reveals, photo wipes, parallax, a moving typography ribbon and a scroll progress indicator. Reduced-motion preferences are respected.
+A responsive, presentation-only React website for SK Management / Le Grande Aura Hotel Group. Built with React and Vite, with lightweight one-time scroll reveals and premium CSS button interactions. Continuous animation, parallax and scroll-driven effects were removed to keep the page responsive. Reduced-motion preferences are respected.
 
 ## Run
 
@@ -23,7 +23,7 @@ Phone and email deliberately use visible placeholders. Replace them with verifie
 
 ## Photography
 
-All seven supplied photographs are included. The original JPEGs are preserved. The site uses conservative CSS color grading, intentional framing and layouts adapted to their native dimensions. AI restoration was attempted with the built-in image tool but could not run because the account's image usage limit was reached. No AI-restored files were produced, and no substitute faces or synthetic team photographs were used.
+All seven supplied photographs are included. The hero image loads eagerly; the six below-fold images use native lazy loading, asynchronous decoding and explicit intrinsic dimensions. The original JPEGs are preserved and displayed without costly runtime filters. AI restoration was attempted with the built-in image tool but could not run because the account's image usage limit was reached. No AI-restored files were produced, and no substitute faces or synthetic team photographs were used.
 
 ## Design references
 
