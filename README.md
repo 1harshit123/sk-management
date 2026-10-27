@@ -29,4 +29,6 @@ All seven supplied photographs are included. The original JPEGs are preserved. T
 
 Original design, inspired by the editorial typography and restrained colors of [SOFT STAY](https://www.framer.com/marketplace/templates/soft-stay/) and [LuxHotel](https://www.framer.com/marketplace/templates/luxhotel/). No template code or assets were copied.
 
-Google Fonts are used for Playfair Display, DM Sans, Manrope and Italiana, with system font fallbacks.
+Google Fonts are used for DM Sans and Manrope, with system font fallbacks. Headings use a clean, non-italic Manrope treatment and body text uses DM Sans.
+
+The supplied `Chocho Aura Demo` font was intentionally not copied into the project. Its bundled license restricts it to personal use and specifically prohibits company websites. Once a licensed commercial webfont is supplied, update `--display` in `src/styles.css` and add its `@font-face` declaration.
