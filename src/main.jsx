@@ -12,7 +12,7 @@ const imageDimensions = {
   recognition: [1977, 1803],
   welcome: [1896, 896],
   partnership: [1686, 1455],
-  team: [2476, 1492],
+  team: [1600, 1200],
 };
 
 function ServiceIcon({ type }) {
@@ -104,7 +104,7 @@ function App() {
           <p>We believe that the right team, effective leadership, and exceptional guest service are the foundations of a successful hotel business.</p>
           <p>Our commitment is to provide practical, reliable, and result-oriented consultancy services that help hotel owners achieve sustainable growth and long-term success.</p>
         </Reveal>
-        <div className="about-images"><Reveal className="about-team"><Photo src="team" alt="Hospitality team gathered outside a hotel entrance" sizes="(max-width: 760px) 58vw, 45vw" /></Reveal><Reveal className="about-detail" delay={80}><Photo src="portrait" alt="A member of the SK Management team in a hotel dining setting" position="52% 48%" sizes="(max-width: 760px) 42vw, 28vw" /></Reveal></div>
+        <div className="about-images"><Reveal className="about-team"><Photo src="team" filename="team-group.webp" alt="Hotel team gathered around the Indian flag outside the property" sizes="(max-width: 760px) 58vw, 45vw" /></Reveal><Reveal className="about-detail" delay={80}><Photo src="portrait" alt="A member of the SK Management team in a hotel dining setting" position="52% 48%" sizes="(max-width: 760px) 42vw, 28vw" /></Reveal></div>
       </section>
 
       <section id="services" className="services section-pad optimized-section">

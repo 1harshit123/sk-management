@@ -113,7 +113,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--brass); outline
 .about-copy p { margin-bottom: 22px; break-inside: avoid; color: var(--muted); }
 .about-copy p:last-child { margin-bottom: 0; }
 .about-images { display: grid; grid-template-columns: 1.65fr 1fr; gap: 32px; align-items: start; margin-top: 68px; }
-.about-team .photo { aspect-ratio: 619 / 373; }
+.about-team .photo { aspect-ratio: 4 / 3; }
 .about-detail { padding-top: 70px; }
 .about-detail .photo { aspect-ratio: 1 / 1.04; }
 

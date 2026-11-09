@@ -23,7 +23,7 @@ Phone and email deliberately use visible placeholders. Replace them with verifie
 
 ## Photography
 
-The supplied hero portrait and six enhanced photographs are displayed as WebP files in `public/images/`, preserving their full resolution. The `_enhanced.jpg` source files and previous banquet photograph are retained. The hero portrait loads eagerly with its crop positioned to keep the face visible; the six below-fold images use native lazy loading, asynchronous decoding and explicit intrinsic dimensions. WebP conversion uses quality 90.
+The supplied hero portrait, replacement team group photo and five enhanced photographs are displayed as WebP files in `public/images/`, preserving their full resolution. The `_enhanced.jpg` source files and previous photographs are retained. The hero portrait loads eagerly with its crop positioned to keep the face visible; the six below-fold images use native lazy loading, asynchronous decoding and explicit intrinsic dimensions. The replacement group photo uses its full 4:3 frame and is also the social-sharing image. WebP conversion uses quality 90.
 
 ## Design references
 
