@@ -114,7 +114,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--brass); outline
 .about-copy p:last-child { margin-bottom: 0; }
 .about-images { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px; align-items: stretch; max-width: 1040px; margin: 68px auto 0; }
 .about-team { grid-column: 1 / -1; }
-.about-team .photo { aspect-ratio: 4 / 3; }
+.about-team .photo { aspect-ratio: 3 / 2; }
 .about-detail .photo { aspect-ratio: 3 / 4; }
 
 .services { background: #edeee5; border-top: 1px solid #dfe2d6; border-bottom: 1px solid #dfe2d6; }

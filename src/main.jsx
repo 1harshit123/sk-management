@@ -13,7 +13,7 @@ const imageDimensions = {
   operations: [1600, 1200],
   welcome: [1600, 718],
   recognition: [1200, 1600],
-  team: [1600, 1200],
+  team: [6000, 4000],
 };
 
 function ServiceIcon({ type }) {
@@ -106,7 +106,7 @@ function App() {
           <p>Our commitment is to provide practical, reliable, and result-oriented consultancy services that help hotel owners achieve sustainable growth and long-term success.</p>
         </Reveal>
         <div className="about-images">
-          <Reveal className="about-team"><Photo src="team" filename="team-group.webp" alt="Hotel team gathered around the Indian flag outside the property" sizes="(max-width: 760px) 100vw, 1040px" /></Reveal>
+          <Reveal className="about-team"><Photo src="team" filename="experience-team.webp" alt="Seven hospitality professionals standing together in a hotel lobby" sizes="(max-width: 760px) 100vw, 1040px" /></Reveal>
           <Reveal className="about-detail"><Photo src="banquet" filename="experience-banquet.webp" alt="A hospitality professional seated at a banquet table decorated with flowers" position="50% 55%" sizes="(max-width: 560px) 100vw, (max-width: 1150px) 50vw, 520px" /></Reveal>
           <Reveal className="about-detail" delay={80}><Photo src="kitchen" filename="experience-kitchen.webp" alt="Hospitality professionals and chefs beside prepared dishes in a hotel kitchen" sizes="(max-width: 560px) 100vw, (max-width: 1150px) 50vw, 520px" /></Reveal>
         </div>
