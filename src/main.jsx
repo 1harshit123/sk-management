@@ -6,7 +6,8 @@ import './styles.css';
 
 const imageDimensions = {
   hero: [853, 1280],
-  banquet: [1800, 3200],
+  banquet: [900, 1600],
+  kitchen: [1200, 1600],
   portrait: [1800, 3200],
   gathering: [1776, 1304],
   recognition: [1977, 1803],
@@ -104,7 +105,11 @@ function App() {
           <p>We believe that the right team, effective leadership, and exceptional guest service are the foundations of a successful hotel business.</p>
           <p>Our commitment is to provide practical, reliable, and result-oriented consultancy services that help hotel owners achieve sustainable growth and long-term success.</p>
         </Reveal>
-        <div className="about-images"><Reveal className="about-team"><Photo src="team" filename="team-group.webp" alt="Hotel team gathered around the Indian flag outside the property" sizes="(max-width: 760px) 58vw, 45vw" /></Reveal><Reveal className="about-detail" delay={80}><Photo src="portrait" alt="A member of the SK Management team in a hotel dining setting" position="52% 48%" sizes="(max-width: 760px) 42vw, 28vw" /></Reveal></div>
+        <div className="about-images">
+          <Reveal className="about-team"><Photo src="team" filename="team-group.webp" alt="Hotel team gathered around the Indian flag outside the property" sizes="(max-width: 760px) 100vw, 1040px" /></Reveal>
+          <Reveal className="about-detail"><Photo src="banquet" filename="experience-banquet.webp" alt="A hospitality professional seated at a banquet table decorated with flowers" position="50% 55%" sizes="(max-width: 560px) 100vw, (max-width: 1150px) 50vw, 520px" /></Reveal>
+          <Reveal className="about-detail" delay={80}><Photo src="kitchen" filename="experience-kitchen.webp" alt="Hospitality professionals and chefs beside prepared dishes in a hotel kitchen" sizes="(max-width: 560px) 100vw, (max-width: 1150px) 50vw, 520px" /></Reveal>
+        </div>
       </section>
 
       <section id="services" className="services section-pad optimized-section">

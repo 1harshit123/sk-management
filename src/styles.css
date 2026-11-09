@@ -112,10 +112,10 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--brass); outline
 .about-copy { columns: 2; column-gap: 82px; margin-top: 40px; }
 .about-copy p { margin-bottom: 22px; break-inside: avoid; color: var(--muted); }
 .about-copy p:last-child { margin-bottom: 0; }
-.about-images { display: grid; grid-template-columns: 1.65fr 1fr; gap: 32px; align-items: start; margin-top: 68px; }
+.about-images { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px; align-items: stretch; max-width: 1040px; margin: 68px auto 0; }
+.about-team { grid-column: 1 / -1; }
 .about-team .photo { aspect-ratio: 4 / 3; }
-.about-detail { padding-top: 70px; }
-.about-detail .photo { aspect-ratio: 1 / 1.04; }
+.about-detail .photo { aspect-ratio: 3 / 4; }
 
 .services { background: #edeee5; border-top: 1px solid #dfe2d6; border-bottom: 1px solid #dfe2d6; }
 .section-heading { display: flex; justify-content: space-between; align-items: flex-start; gap: 55px; margin-bottom: 58px; }
@@ -222,7 +222,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--brass); outline
   .hero-image-frame { height: 500px; border-top-left-radius: 115px; }
   .hero-description, .about-copy p, .section-heading p, .people-heading p { font-size: 16px; }
   .about-copy { column-gap: 38px; }
-  .about-images { grid-template-columns: 1.45fr 1fr; gap: 24px; }
+  .about-images { gap: 24px; }
   .service-row { grid-template-columns: 54px 1fr 1.15fr; gap: 20px; }
   .service-row h3 { font-size: 25px; }
   .service-description p { font-size: 15px; }
@@ -266,8 +266,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--brass); outline
   .about-heading .lead { font-size: 21px; }
   .about-copy { columns: 1; margin-top: 30px; }
   .about-copy p, .section-heading p, .people-heading p { font-size: 16px; }
-  .about-images { margin-top: 42px; grid-template-columns: 1.25fr 1fr; gap: 16px; }
-  .about-detail { padding-top: 45px; }
+  .about-images { margin-top: 42px; gap: 16px; }
   .section-heading > div:last-child { width: auto; padding-top: 0; margin-top: 24px; }
   .service-list { margin-top: 36px; }
   .service-row { min-height: 0; padding: 28px 0; grid-template-columns: 38px 1fr; align-items: start; gap: 13px 14px; }
@@ -311,6 +310,10 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--brass); outline
   .footer-top > p { width: 100%; font-size: 13px; }
   .footer-bottom { flex-wrap: wrap; font-size: 11px; }
   .optimized-section { contain-intrinsic-size: auto 760px; }
+}
+
+@media (max-width: 560px) {
+  .about-images { grid-template-columns: minmax(0, 1fr); }
 }
 
 @media (prefers-reduced-motion: reduce) {
