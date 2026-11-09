@@ -31,4 +31,6 @@ Original design, inspired by the editorial typography and restrained colors of [
 
 Google Fonts are used for DM Sans and Manrope, with system font fallbacks. Headings use a clean, non-italic Manrope treatment and body text uses DM Sans.
 
+The SK Management wordmark and Le Grande Aura Hotel Group line use the user-supplied Awesome Regular font, self-hosted at `public/fonts/Awesome.ttf`. Both lines have responsive sizes for the navbar and footer.
+
 The supplied `Chocho Aura Demo` font was intentionally not copied into the project. Its bundled license restricts it to personal use and specifically prohibits company websites. Once a licensed commercial webfont is supplied, update `--display` in `src/styles.css` and add its `@font-face` declaration.
