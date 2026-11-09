@@ -132,15 +132,13 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--brass); outline
 .people { overflow: hidden; color: #eef0e7; background: var(--olive); }
 .people-heading { display: grid; grid-template-columns: 1.35fr 1fr; align-items: end; gap: 100px; margin-bottom: 66px; }
 .people-heading p { max-width: 470px; font-size: 17px; color: #bcc5b5; }
-.people-gallery { display: grid; grid-template-columns: 1.1fr .95fr .85fr; align-items: start; gap: 32px; }
-.gallery-recognition .photo { aspect-ratio: 659 / 601; }
-.gallery-partnership { margin-top: 80px; }
-.gallery-partnership .photo { aspect-ratio: 562 / 485; }
-.gallery-welcome { margin-top: 160px; }
-.gallery-welcome .photo { aspect-ratio: 474 / 224; }
-.gallery-team { grid-column: 1; max-width: 350px; margin-top: 8px; }
-.gallery-team .photo { aspect-ratio: 444 / 326; }
-.gallery-quote { grid-column: 2 / 4; max-width: 650px; padding: 42px 0 0 32px; display: flex; align-items: flex-start; gap: 18px; }
+.people-gallery { display: grid; gap: 24px; }
+.people-team-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+.people-team-grid .photo { aspect-ratio: 4 / 3; }
+.people-moments-grid { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 1fr); gap: 24px; align-items: stretch; }
+.gallery-welcome .photo { aspect-ratio: 9 / 4; }
+.gallery-recognition .photo { aspect-ratio: 3 / 4; }
+.gallery-quote { max-width: 760px; margin: 40px auto 0; padding-top: 32px; border-top: 1px solid rgba(198, 207, 191, .25); display: flex; align-items: flex-start; gap: 18px; }
 .gallery-quote > span { font-family: var(--display); font-size: 80px; line-height: .8; color: #99a58d; }
 .gallery-quote p { font-family: var(--display); font-size: 31px; font-weight: 500; line-height: 1.45; letter-spacing: -.03em; }
 
@@ -226,10 +224,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--brass); outline
   .service-row { grid-template-columns: 54px 1fr 1.15fr; gap: 20px; }
   .service-row h3 { font-size: 25px; }
   .service-description p { font-size: 15px; }
-  .people-gallery { grid-template-columns: 1fr 1fr; gap: 32px 24px; }
-  .gallery-welcome { grid-column: 2; grid-row: 2; margin-top: 0; }
-  .gallery-team { grid-column: 1; grid-row: 2; margin-top: 0; }
-  .gallery-quote { grid-column: 1 / -1; padding: 24px 0 0; }
+  .people-gallery, .people-team-grid, .people-moments-grid { gap: 20px; }
   .process-step p { font-size: 15px; }
   .values-inner { gap: 55px; }
   .faq-layout { grid-template-columns: .9fr 1.2fr; gap: 50px; }
@@ -278,9 +273,10 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--brass); outline
   .service-description p { font-size: 15px; }
   .people-heading { margin-bottom: 38px; }
   .people-heading p { margin-top: 24px; }
-  .people-gallery { gap: 24px 16px; }
-  .gallery-partnership { margin-top: 48px; }
-  .gallery-quote { gap: 14px; padding-top: 14px; }
+  .people-gallery, .people-team-grid, .people-moments-grid { gap: 16px; }
+  .people-team-grid, .people-moments-grid { grid-template-columns: minmax(0, 1fr); }
+  .gallery-welcome .photo { height: auto; aspect-ratio: 1600 / 718; }
+  .gallery-quote { margin-top: 30px; gap: 14px; padding-top: 26px; }
   .gallery-quote > span { font-size: 62px; }
   .gallery-quote p { font-size: 24px; }
   .process-steps { margin-top: 42px; display: grid; grid-template-columns: 1fr; gap: 0; }

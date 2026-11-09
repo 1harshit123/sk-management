@@ -8,11 +8,11 @@ const imageDimensions = {
   hero: [853, 1280],
   banquet: [900, 1600],
   kitchen: [1200, 1600],
-  portrait: [1800, 3200],
-  gathering: [1776, 1304],
-  recognition: [1977, 1803],
-  welcome: [1896, 896],
-  partnership: [1686, 1455],
+  hospitality: [1280, 960],
+  management: [1600, 1200],
+  operations: [1600, 1200],
+  welcome: [1600, 718],
+  recognition: [1200, 1600],
   team: [1600, 1200],
 };
 
@@ -119,7 +119,18 @@ function App() {
       </section>
 
       <section className="people section-pad optimized-section" id="people"><div className="container"><div className="people-heading"><div><h2><FoldText text="Hospitality is built by people." splitBy="word" foldAngle={85} duration={0.65} stagger={0.07} creaseShading={0.35} hoverRefold refoldRadius={110} refoldAngle={30} /></h2></div><Reveal delay={80}><p>Behind every smooth opening are people working together. We value the conversations, collaboration and shared commitment that make a hospitality team.</p></Reveal></div>
-          <div className="people-gallery"><Reveal className="gallery-item gallery-recognition"><Photo src="recognition" alt="Hospitality professionals sharing a moment of recognition" sizes="(max-width: 760px) 50vw, 34vw" /></Reveal><Reveal className="gallery-item gallery-partnership" delay={70}><Photo src="partnership" alt="Three hospitality professionals with a welcoming bouquet" sizes="(max-width: 760px) 50vw, 30vw" /></Reveal><Reveal className="gallery-item gallery-welcome" delay={120}><Photo src="welcome" alt="Hospitality colleagues exchanging a welcome bouquet" sizes="(max-width: 760px) 50vw, 28vw" /></Reveal><Reveal className="gallery-item gallery-team" delay={50}><Photo src="gathering" alt="Hospitality colleagues gathered for a team occasion" sizes="(max-width: 760px) 50vw, 24vw" /></Reveal><Reveal className="gallery-quote"><span>“</span><p>Behind every successful guest experience is a team working together.</p></Reveal></div>
+          <div className="people-gallery">
+            <div className="people-team-grid">
+              <Reveal className="gallery-item"><Photo src="hospitality" filename="people-hospitality-team.webp" alt="Hotel professionals and a chef standing together in a banquet setting" sizes="(max-width: 760px) 100vw, 33vw" /></Reveal>
+              <Reveal className="gallery-item" delay={60}><Photo src="management" filename="people-management.webp" alt="Three hospitality professionals standing together at a hotel event" sizes="(max-width: 760px) 100vw, 33vw" /></Reveal>
+              <Reveal className="gallery-item" delay={120}><Photo src="operations" filename="people-operations.webp" alt="A hotel professional with four team members in a hotel lobby" sizes="(max-width: 760px) 100vw, 33vw" /></Reveal>
+            </div>
+            <div className="people-moments-grid">
+              <Reveal className="gallery-item gallery-welcome"><Photo src="welcome" filename="people-welcome.webp" alt="A group sharing a welcoming bouquet inside a hotel" sizes="(max-width: 760px) 100vw, 75vw" /></Reveal>
+              <Reveal className="gallery-item gallery-recognition" delay={80}><Photo src="recognition" filename="people-recognition.webp" alt="Hospitality professionals presenting a commemorative plaque" sizes="(max-width: 760px) 100vw, 25vw" /></Reveal>
+            </div>
+          </div>
+          <Reveal className="gallery-quote"><span aria-hidden="true">“</span><p>Behind every successful guest experience is a team working together.</p></Reveal>
         </div></section>
 
       <section className="process section-pad container optimized-section" id="process"><div className="section-heading"><Reveal><h2>A clear path from planning to opening.</h2></Reveal><Reveal delay={80}><p>Good teams start with understanding. We bring clarity and coordination to each stage of your staffing journey.</p></Reveal></div><div className="process-steps">{steps.map((step, index) => <Reveal className="process-step" delay={index * 45} key={step.title}><div className="step-top"><span>0{index + 1}</span><i /></div><h3>{step.title}</h3><p>{step.text}</p></Reveal>)}</div></section>
