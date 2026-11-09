@@ -172,6 +172,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--brass); outline
 .contact-bottom .contact-lead { font-size: 23px; font-weight: 500; color: var(--paper); }
 .contact-bottom .contact-prompt { font-weight: 500; color: var(--paper); }
 .contact-linkedin { gap: 10px; color: var(--paper); border-color: #aebba6; }
+.linkedin-icon { width: 18px; height: 18px; flex-shrink: 0; }
 .contact-linkedin::before { background: var(--paper); }
 .contact-linkedin:hover { color: var(--olive); border-color: var(--paper); }
 .contact-details { margin-top: 56px; padding-top: 32px; display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 60px; border-top: 1px solid rgba(178, 192, 167, .32); font-style: normal; }
