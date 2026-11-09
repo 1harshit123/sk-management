@@ -69,14 +69,14 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--brass); outline
 .brand-monogram::before { top: -7px; }
 .brand-monogram::after { bottom: -8px; }
 .brand-monogram span { display: inline-block; transform: translateY(2px); }
-.brand-name { display: flex; flex-direction: column; gap: 4px; white-space: nowrap; }
+.brand-name { display: flex; flex-direction: column; gap: 2px; white-space: nowrap; }
 .brand-wordmark, .brand-tagline { font-family: 'Awesome', cursive; font-style: normal; font-weight: 400; letter-spacing: 0; line-height: 1.2; }
-.brand-wordmark { font-size: 32px; }
-.brand-tagline { font-size: 18px; color: var(--muted); }
-.header .brand { gap: 18px; }
+.brand-wordmark { font-size: 24px; }
+.brand-tagline { font-size: 13px; color: var(--muted); }
+.header .brand { gap: 14px; }
 .header .brand-monogram { font-size: 44px; }
-.header .brand-wordmark { font-size: 36px; }
-.header .brand-tagline { font-size: 20px; }
+.header .brand-wordmark { font-size: 26px; }
+.header .brand-tagline { font-size: 14px; }
 .desktop-nav { display: flex; align-items: center; gap: 38px; margin-left: auto; margin-right: 48px; }
 .desktop-nav a { position: relative; padding: 12px 0; font-size: 15px; font-weight: 500; color: #555c51; }
 .desktop-nav a::after { content: ''; position: absolute; right: 0; bottom: 5px; left: 0; height: 1px; background: var(--brass); transform: scaleX(0); transform-origin: left; transition: transform .25s ease; }
@@ -242,10 +242,10 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--brass); outline
   .header-inner { height: 86px; }
   .scrolled .header-inner { height: 72px; }
   .brand-monogram { font-size: 34px; }
-  .header .brand { gap: 16px; }
+  .header .brand { gap: 12px; }
   .header .brand-monogram { font-size: 38px; }
-  .brand-wordmark, .header .brand-wordmark { font-size: 30px; }
-  .brand-tagline, .header .brand-tagline { font-size: 16px; }
+  .brand-wordmark, .header .brand-wordmark { font-size: 24px; }
+  .brand-tagline, .header .brand-tagline { font-size: 12px; }
   .desktop-nav, .header-cta { display: none; }
   .menu-button { width: 42px; height: 42px; padding: 7px; display: flex; flex-direction: column; align-items: flex-end; justify-content: center; gap: 7px; border: 0; background: transparent; }
   .menu-button > span { width: 27px; height: 1px; background: var(--ink); transition: transform .25s ease, width .25s ease; }
