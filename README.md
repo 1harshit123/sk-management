@@ -1,6 +1,6 @@
 # SK Management
 
-A responsive, presentation-only React website for SK Management / Le Grande Aura Hotel Group. Built with React and Vite, with lightweight one-time scroll reveals and premium CSS button interactions. Continuous animation, parallax and scroll-driven effects were removed to keep the page responsive. Reduced-motion preferences are respected.
+A responsive, presentation-only React website for SK Management / Le Grande Aura Hotel Group. Built with React and Vite, with lightweight one-time scroll reveals and premium CSS button interactions. Four selected headings use the user-supplied React Bits FoldText effect with GSAP, unfolding once as they enter the viewport. The animation inherits the existing heading typography, has no looping or pointer tracking, and displays headings immediately for reduced-motion preferences.
 
 ## Run
 
