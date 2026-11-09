@@ -4,6 +4,7 @@ import { contact, services, steps, questions } from './content';
 import './styles.css';
 
 const imageDimensions = {
+  hero: [853, 1280],
   banquet: [1800, 3200],
   portrait: [1800, 3200],
   gathering: [1776, 1304],
@@ -32,9 +33,9 @@ function Reveal({ children, className = '', delay = 0, as: Tag = 'div' }) {
   return <Tag className={`reveal ${className}`} style={{ '--delay': `${delay}ms` }}>{children}</Tag>;
 }
 
-function Photo({ src, alt, className = '', loading = 'lazy', position, sizes = '(max-width: 760px) 100vw, 50vw' }) {
+function Photo({ src, alt, className = '', loading = 'lazy', position, sizes = '(max-width: 760px) 100vw, 50vw', filename = `${src}_enhanced.webp` }) {
   const [width, height] = imageDimensions[src];
-  return <div className={`photo ${className}`}><img src={`/images/${src}_enhanced.webp`} alt={alt} width={width} height={height} loading={loading} fetchPriority={loading === 'eager' ? 'high' : 'low'} decoding="async" sizes={sizes} style={position ? { objectPosition: position } : undefined} /></div>;
+  return <div className={`photo ${className}`}><img src={`/images/${filename}`} alt={alt} width={width} height={height} loading={loading} fetchPriority={loading === 'eager' ? 'high' : 'low'} decoding="async" sizes={sizes} style={position ? { objectPosition: position } : undefined} /></div>;
 }
 
 function App() {
@@ -88,7 +89,7 @@ function App() {
           <a className="premium-button entrance" href="#services">Explore our services</a>
         </div>
         <div className="hero-visual">
-          <div className="hero-image-frame"><Photo src="banquet" alt="A hospitality professional at a carefully prepared banquet table" loading="eager" className="hero-photo" position="50% 57%" sizes="(max-width: 760px) 100vw, 48vw" /></div>
+          <div className="hero-image-frame"><Photo src="hero" filename="hero-portrait.webp" alt="A hospitality professional in a beige suit in a hotel interior" loading="eager" className="hero-photo" position="50% 40%" sizes="(max-width: 760px) 100vw, 48vw" /></div>
         </div>
       </section>
 
