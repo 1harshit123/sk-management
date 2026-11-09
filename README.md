@@ -23,6 +23,8 @@ Phone and email deliberately use visible placeholders. Replace them with verifie
 
 ## Photography
 
+The contact section pairs its copy with a branded React Bits Lanyard card for Sandeep Kumai. Three.js loads only near the section on desktop devices with a fine pointer. The card supports dragging, clicking to flip and a keyboard-accessible Flip card button. It has no constant breeze, pauses out of view or in a hidden tab, and settles when idle. Mobile, reduced-motion and unsupported WebGL environments retain a static card with the same flip button. Editable badge artwork is in `public/lanyard/*.svg`; the rendered WebP versions provide consistent fonts and textures.
+
 The supplied photographs are served as WebP files in `public/images/`, preserving their full resolution. The `_enhanced.jpg` source files and previous photographs are retained. The hero portrait loads eagerly; below-fold images use native lazy loading, asynchronous decoding and explicit intrinsic dimensions. Our Experience shows the group photo at full 3:2 above two equally sized 3:4 photos: the banquet table and kitchen team. The People section uses five supplied photos: three aligned 4:3 team images above a wide welcome image and a portrait recognition image. Galleries stack into a single column on narrow screens. The Experience group photo is also the social-sharing image. WebP conversion uses quality 90.
 
 ## Design references
