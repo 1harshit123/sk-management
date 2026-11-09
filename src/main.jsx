@@ -121,7 +121,17 @@ function App() {
 
       <section className="faq section-pad container optimized-section" id="questions"><div className="faq-layout"><Reveal><h2>Questions before we begin.</h2></Reveal><div className="faq-questions">{questions.map((item, index) => <Reveal className="faq-item" delay={index * 35} key={item.question}><span>0{index + 1}</span><div><h3>{item.question}</h3><p>{item.answer}</p></div></Reveal>)}</div></div></section>
 
-      <section className="contact optimized-section" id="contact"><div className="container"><Reveal><h2>Build your opening team with us.</h2></Reveal><Reveal className="contact-bottom"><p>Tell us about your vision. Let’s prepare for your first welcome.</p></Reveal><Reveal className="contact-details" as="address"><div><h3 className="contact-label">Find us</h3><p>{contact.address}<br />{contact.region}</p></div><div><h3 className="contact-label">Call our team</h3><p>{contact.phone}</p></div><div><h3 className="contact-label">Write to us</h3><p>{contact.email}</p></div></Reveal></div></section>
+      <section className="contact optimized-section" id="contact">
+        <div className="container">
+          <Reveal><h2>Want to grow your hotel business?</h2></Reveal>
+          <Reveal className="contact-bottom">
+            <p className="contact-lead">A great hotel starts with a great team.</p>
+            <p>Find experienced, qualified and professionally trained staff for hotel operations, front office, F&amp;B, housekeeping and banquet management. Build a stronger team, improve guest satisfaction and take your business forward.</p>
+            <p className="contact-prompt">Contact us today for professional hotel team hiring and staffing.</p>
+          </Reveal>
+          <Reveal className="contact-details" as="address"><div><h3 className="contact-label">Find us</h3><p>{contact.address}<br />{contact.region}</p></div><div><h3 className="contact-label">Call our team</h3><p>{contact.phone}</p></div><div><h3 className="contact-label">Write to us</h3><p>{contact.email}</p></div></Reveal>
+        </div>
+      </section>
     </main>
 
     <footer className="footer container"><div className="footer-top"><Brand /><p>Building hospitality teams.<br />Preparing for exceptional beginnings.</p></div><div className="footer-bottom"><span>© {new Date().getFullYear()} SK Management. All rights reserved.</span><span>Le Grande Aura Hotel Group</span></div></footer>

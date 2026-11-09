@@ -169,7 +169,10 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--brass); outline
 .contact { padding: 100px 0 62px; overflow: hidden; color: var(--paper); background: #343f31; }
 .contact h2 { max-width: 920px; }
 .contact-bottom { margin-top: 34px; }
-.contact-bottom p { max-width: 620px; font-size: 17px; color: #c0c9b8; }
+.contact-bottom p { max-width: 740px; font-size: 17px; color: #c0c9b8; }
+.contact-bottom p + p { margin-top: 18px; }
+.contact-bottom .contact-lead { font-size: 23px; font-weight: 500; color: var(--paper); }
+.contact-bottom .contact-prompt { font-weight: 500; color: var(--paper); }
 .contact-details { margin-top: 56px; padding-top: 32px; display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 60px; border-top: 1px solid rgba(178, 192, 167, .32); font-style: normal; }
 .contact-label { margin-bottom: 13px; font-size: 17px; font-weight: 500; color: #aebba6; }
 .contact-details p { font-size: 17px; color: #e0e4da; overflow-wrap: anywhere; }
@@ -300,6 +303,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--brass); outline
   .faq-item p { font-size: 15px; }
   .contact { padding: 76px 0 48px; }
   .contact-bottom p, .contact-details p { font-size: 16px; }
+  .contact-bottom .contact-lead { font-size: 21px; }
   .contact-details { margin-top: 38px; padding-top: 26px; grid-template-columns: 1fr 1fr; gap: 28px 20px; }
   .contact-details > div:first-child { grid-column: 1 / -1; }
   .footer { padding-top: 38px; }
