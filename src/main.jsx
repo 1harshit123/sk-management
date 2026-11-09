@@ -93,7 +93,7 @@ function App() {
       </section>
 
       <section className="about section-pad container optimized-section" id="about">
-        <div className="about-heading"><Reveal><h2>Our Experience</h2></Reveal><Reveal className="about-intro" delay={80}><h3>About Us</h3><p className="lead">Welcome to professional Hotel Consultancy &amp; Hospitality Management Services.</p></Reveal></div>
+        <Reveal className="about-heading"><h2>Our Experience</h2><p className="lead">Welcome to professional Hotel Consultancy &amp; Hospitality Management Services.</p></Reveal>
         <Reveal className="about-copy">
           <p>With 18 years of hands-on experience in the hospitality industry, Sandeep Kumai, Director – Hotel Consultancy &amp; Operations, brings extensive expertise in hotel operations, General Management, pre-opening projects, team recruitment, food and beverage, banquet management, revenue optimization, and guest satisfaction.</p>
           <p>Our mission is to help hotel owners build experienced, qualified, and dedicated teams while improving operational efficiency and overall business performance.</p>
