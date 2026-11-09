@@ -23,7 +23,7 @@ Phone and email deliberately use visible placeholders. Replace them with verifie
 
 ## Photography
 
-All seven supplied photographs are included. The hero image loads eagerly; the six below-fold images use native lazy loading, asynchronous decoding and explicit intrinsic dimensions. The original JPEGs are preserved and displayed without costly runtime filters. AI restoration was attempted with the built-in image tool but could not run because the account's image usage limit was reached. No AI-restored files were produced, and no substitute faces or synthetic team photographs were used.
+All seven user-supplied enhanced photographs are displayed as WebP files in `public/images/`, preserving their full resolution. Their `_enhanced.jpg` source files are retained alongside the WebP versions. The hero image loads eagerly; the six below-fold images use native lazy loading, asynchronous decoding and explicit intrinsic dimensions. WebP conversion uses quality 90 and reduces the combined photo size by approximately 63% compared with the supplied JPEGs.
 
 ## Design references
 

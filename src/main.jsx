@@ -4,13 +4,13 @@ import { contact, services, steps, questions } from './content';
 import './styles.css';
 
 const imageDimensions = {
-  banquet: [900, 1600],
-  portrait: [900, 1600],
-  gathering: [444, 326],
-  recognition: [659, 601],
-  welcome: [474, 224],
-  partnership: [562, 485],
-  team: [619, 373],
+  banquet: [1800, 3200],
+  portrait: [1800, 3200],
+  gathering: [1776, 1304],
+  recognition: [1977, 1803],
+  welcome: [1896, 896],
+  partnership: [1686, 1455],
+  team: [2476, 1492],
 };
 
 function ServiceIcon({ type }) {
@@ -34,7 +34,7 @@ function Reveal({ children, className = '', delay = 0, as: Tag = 'div' }) {
 
 function Photo({ src, alt, className = '', loading = 'lazy', position, sizes = '(max-width: 760px) 100vw, 50vw' }) {
   const [width, height] = imageDimensions[src];
-  return <div className={`photo ${className}`}><img src={`/images/${src}.jpeg`} alt={alt} width={width} height={height} loading={loading} fetchPriority={loading === 'eager' ? 'high' : 'low'} decoding="async" sizes={sizes} style={position ? { objectPosition: position } : undefined} /></div>;
+  return <div className={`photo ${className}`}><img src={`/images/${src}_enhanced.webp`} alt={alt} width={width} height={height} loading={loading} fetchPriority={loading === 'eager' ? 'high' : 'low'} decoding="async" sizes={sizes} style={position ? { objectPosition: position } : undefined} /></div>;
 }
 
 function App() {
