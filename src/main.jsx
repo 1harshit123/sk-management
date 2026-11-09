@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client';
 import { contact, services, steps, questions } from './content';
 import FoldText from './components/FoldText';
 import LanyardCard from './components/LanyardCard';
+import { observeViewportEntry } from './animation/viewportEntry';
 import './styles.css';
 
 const imageDimensions = {
@@ -32,8 +33,8 @@ function Brand() {
   return <a href="#home" className="brand" aria-label="SK Management home"><span className="brand-monogram">S<span>K</span></span><span className="brand-name"><span className="brand-wordmark">SK Management</span><span className="brand-tagline">Le Grande Aura Hotel Group</span></span></a>;
 }
 
-function Reveal({ children, className = '', delay = 0, as: Tag = 'div' }) {
-  return <Tag className={`reveal ${className}`} style={{ '--delay': `${delay}ms` }}>{children}</Tag>;
+function Reveal({ children, className = '', delay = 0, as: Tag = 'div', ...props }) {
+  return <Tag {...props} className={`reveal ${className}`} style={{ '--delay': `${delay}ms` }}>{children}</Tag>;
 }
 
 function Photo({ src, alt, className = '', loading = 'lazy', position, sizes = '(max-width: 760px) 100vw, 50vw', filename = `${src}_enhanced.webp` }) {
@@ -48,19 +49,12 @@ function App() {
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 36);
-    const revealObserver = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: .06, rootMargin: '0px 0px -24px 0px' });
-    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+    const stopReveals = Array.from(document.querySelectorAll('.reveal'), element =>
+      observeViewportEntry(element, () => element.classList.add('is-visible'), { waitForImages: true }));
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
     return () => {
-      revealObserver.disconnect();
+      stopReveals.forEach(stop => stop());
       window.removeEventListener('scroll', onScroll);
     };
   }, []);
@@ -87,13 +81,13 @@ function App() {
     <main id="main">
       <section id="home" className="hero container">
         <div className="hero-copy">
-          <h1><span className="word-mask"><span>Great hotels</span></span><span className="word-mask"><span>begin with</span></span><span className="word-mask"><span>great people.</span></span></h1>
-          <p className="hero-description entrance">Your vision deserves an exceptional team. Hospitality staffing and pre-opening expertise, thoughtfully brought together.</p>
-          <a className="premium-button entrance" href="#services">Explore our services</a>
+          <Reveal as="h1" className="hero-title"><span className="word-mask"><span>Great hotels</span></span><span className="word-mask"><span>begin with</span></span><span className="word-mask"><span>great people.</span></span></Reveal>
+          <Reveal as="p" className="hero-description" delay={120}>Your vision deserves an exceptional team. Hospitality staffing and pre-opening expertise, thoughtfully brought together.</Reveal>
+          <Reveal as="a" className="premium-button" href="#services" delay={180}>Explore our services</Reveal>
         </div>
-        <div className="hero-visual">
+        <Reveal className="hero-visual" delay={100}>
           <div className="hero-image-frame"><Photo src="hero" filename="hero-portrait.webp" alt="A hospitality professional in a beige suit in a hotel interior" loading="eager" className="hero-photo" position="50% 40%" sizes="(max-width: 760px) 100vw, 48vw" /></div>
-        </div>
+        </Reveal>
       </section>
 
       <section className="about section-pad container optimized-section" id="about">

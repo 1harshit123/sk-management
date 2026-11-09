@@ -5,6 +5,7 @@ import { useEffect, useLayoutEffect, useMemo, useRef } from 'react';
 import { gsap } from 'gsap';
 
 import './FoldText.css';
+import { observeViewportEntry } from '../animation/viewportEntry';
 
 
 const useIsomorphicLayoutEffect = typeof window === 'undefined' ? useEffect : useLayoutEffect;
@@ -41,7 +42,7 @@ const FoldText = ({
   stagger = 0.045,
   staggerFrom = 'start',
   foldAngle = 92,
-  ease = 'power3.out',
+  ease = 'back.out(1.25)',
   perspective = 700,
   creaseShading = 0.55,
   trigger = 'scroll',
@@ -200,7 +201,7 @@ const FoldText = ({
     };
 
     let timeline = null;
-    let scrollObserver = null;
+    let stopScroll = null;
 
     const play = loop => {
       timeline?.kill();
@@ -223,19 +224,7 @@ const FoldText = ({
       root.addEventListener('mouseenter', handleEnter);
     } else if (trigger === 'scroll') {
       render();
-      // Observe the heading itself so content-visibility sections and font
-      // loading cannot leave a cached page offset out of date.
-      if ('IntersectionObserver' in window) {
-        scrollObserver = new IntersectionObserver(entries => {
-          if (entries.some(entry => entry.isIntersecting)) {
-            scrollObserver.disconnect();
-            handleEnter();
-          }
-        }, { rootMargin: '0px 0px -12% 0px', threshold: 0 });
-        scrollObserver.observe(root);
-      } else {
-        handleEnter();
-      }
+      stopScroll = observeViewportEntry(root, handleEnter);
     } else {
       play(trigger === 'loop');
     }
@@ -326,7 +315,7 @@ const FoldText = ({
       root.removeEventListener('pointerleave', handleLeave);
       root.removeEventListener('pointercancel', handleLeave);
       gsap.ticker.remove(relax);
-      scrollObserver?.disconnect();
+      stopScroll?.();
       timeline?.kill();
       gsap.killTweensOf(pieces);
     };
