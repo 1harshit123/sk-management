@@ -95,7 +95,7 @@ function App() {
       </section>
 
       <section className="about section-pad container optimized-section" id="about">
-        <div className="about-heading"><h2><FoldText text="Our Experience" splitBy="char" foldAngle={85} duration={0.65} stagger={0.025} creaseShading={0.35} /></h2><Reveal as="p" className="lead" delay={80}>Welcome to professional Hotel Consultancy &amp; Hospitality Management Services.</Reveal></div>
+        <div className="about-heading"><h2><FoldText text="Our Experience" splitBy="char" foldAngle={85} duration={0.65} stagger={0.025} creaseShading={0.35} hoverRefold refoldRadius={110} refoldAngle={30} /></h2><Reveal as="p" className="lead" delay={80}>Welcome to professional Hotel Consultancy &amp; Hospitality Management Services.</Reveal></div>
         <Reveal className="about-copy">
           <p>With 18 years of hands-on experience in the hospitality industry, Sandeep Kumai, Director – Hotel Consultancy &amp; Operations, brings extensive expertise in hotel operations, General Management, pre-opening projects, team recruitment, food and beverage, banquet management, revenue optimization, and guest satisfaction.</p>
           <p>Our mission is to help hotel owners build experienced, qualified, and dedicated teams while improving operational efficiency and overall business performance.</p>
@@ -108,12 +108,12 @@ function App() {
       </section>
 
       <section id="services" className="services section-pad optimized-section">
-        <div className="container"><div className="section-heading"><div><h2><FoldText text="Staffing expertise for a confident hotel opening." splitBy="word" foldAngle={85} duration={0.65} stagger={0.07} creaseShading={0.35} /></h2></div><Reveal delay={80}><p>Every hotel is different. So is every team. Our support is built around your property’s people, priorities and possibilities.</p></Reveal></div>
+        <div className="container"><div className="section-heading"><div><h2><FoldText text="Staffing expertise for a confident hotel opening." splitBy="word" foldAngle={85} duration={0.65} stagger={0.07} creaseShading={0.35} hoverRefold refoldRadius={110} refoldAngle={30} /></h2></div><Reveal delay={80}><p>Every hotel is different. So is every team. Our support is built around your property’s people, priorities and possibilities.</p></Reveal></div>
           <div className="service-list">{services.map((service, index) => <Reveal className="service-row" delay={index * 25} key={service.title}><div className="service-index"><ServiceIcon type={service.icon} /></div><h3>{service.title}</h3><div className="service-description"><p>{service.text}</p></div></Reveal>)}</div>
         </div>
       </section>
 
-      <section className="people section-pad optimized-section" id="people"><div className="container"><div className="people-heading"><div><h2><FoldText text="Hospitality is built by people." splitBy="word" foldAngle={85} duration={0.65} stagger={0.07} creaseShading={0.35} /></h2></div><Reveal delay={80}><p>Behind every smooth opening are people working together. We value the conversations, collaboration and shared commitment that make a hospitality team.</p></Reveal></div>
+      <section className="people section-pad optimized-section" id="people"><div className="container"><div className="people-heading"><div><h2><FoldText text="Hospitality is built by people." splitBy="word" foldAngle={85} duration={0.65} stagger={0.07} creaseShading={0.35} hoverRefold refoldRadius={110} refoldAngle={30} /></h2></div><Reveal delay={80}><p>Behind every smooth opening are people working together. We value the conversations, collaboration and shared commitment that make a hospitality team.</p></Reveal></div>
           <div className="people-gallery"><Reveal className="gallery-item gallery-recognition"><Photo src="recognition" alt="Hospitality professionals sharing a moment of recognition" sizes="(max-width: 760px) 50vw, 34vw" /></Reveal><Reveal className="gallery-item gallery-partnership" delay={70}><Photo src="partnership" alt="Three hospitality professionals with a welcoming bouquet" sizes="(max-width: 760px) 50vw, 30vw" /></Reveal><Reveal className="gallery-item gallery-welcome" delay={120}><Photo src="welcome" alt="Hospitality colleagues exchanging a welcome bouquet" sizes="(max-width: 760px) 50vw, 28vw" /></Reveal><Reveal className="gallery-item gallery-team" delay={50}><Photo src="gathering" alt="Hospitality colleagues gathered for a team occasion" sizes="(max-width: 760px) 50vw, 24vw" /></Reveal><Reveal className="gallery-quote"><span>“</span><p>Behind every successful guest experience is a team working together.</p></Reveal></div>
         </div></section>
 
@@ -125,7 +125,7 @@ function App() {
 
       <section className="contact optimized-section" id="contact">
         <div className="container">
-          <h2><FoldText text="Want to grow your hotel business?" splitBy="word" foldAngle={85} duration={0.65} stagger={0.07} creaseShading={0.35} /></h2>
+          <h2><FoldText text="Want to grow your hotel business?" splitBy="word" foldAngle={85} duration={0.65} stagger={0.07} creaseShading={0.35} hoverRefold refoldRadius={110} refoldAngle={30} /></h2>
           <Reveal className="contact-bottom">
             <p className="contact-lead">A great hotel starts with a great team.</p>
             <p>Find experienced, qualified and professionally trained staff for hotel operations, front office, F&amp;B, housekeeping and banquet management. Build a stronger team, improve guest satisfaction and take your business forward.</p>

@@ -1,6 +1,6 @@
 # SK Management
 
-A responsive, presentation-only React website for SK Management / Le Grande Aura Hotel Group. Built with React and Vite, with lightweight one-time scroll reveals and premium CSS button interactions. Four selected headings use the user-supplied React Bits FoldText effect with GSAP, unfolding once as they enter the viewport. The animation inherits the existing heading typography, has no looping or pointer tracking, and displays headings immediately for reduced-motion preferences.
+A responsive, presentation-only React website for SK Management / Le Grande Aura Hotel Group. Built with React and Vite, with lightweight one-time scroll reveals and premium CSS button interactions. Four selected headings use the user-supplied React Bits FoldText effect with GSAP, unfolding once as they enter the viewport. Mouse users can gently refold nearby letters or words by hovering over these headings; the text settles back when the pointer leaves. Hover tracking is limited to the headings on devices with a fine pointer, and stops when the text settles. Touchscreens retain the scroll reveal, while reduced-motion preferences display headings immediately without animation.
 
 ## Run
 

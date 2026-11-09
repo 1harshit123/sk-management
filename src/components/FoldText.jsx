@@ -146,7 +146,8 @@ const FoldText = ({
     const foldEase = gsap.parseEase(reduceMotion ? 'power1.in' : 'power2.in');
     const angle = reduceMotion ? 0 : safeStyle === 'flip' ? 180 : safeAngle;
     const crease = reduceMotion ? 0 : safeCrease;
-    const refold = hoverRefold && !reduceMotion ? safeRefold : 0;
+    const supportsHover = window.matchMedia?.('(hover: hover) and (pointer: fine)').matches;
+    const refold = hoverRefold && supportsHover ? safeRefold : 0;
     const lift = safeStyle === 'flip' && !reduceMotion ? 0.45 : 0;
     const unfoldDuration = reduceMotion ? Math.min(duration, 0.22) : duration;
     const staggerVars = { each: reduceMotion ? Math.min(safeStagger, 0.02) : safeStagger, from: staggerFrom };
@@ -297,6 +298,7 @@ const FoldText = ({
     };
 
     const handleMove = event => {
+      if (event.pointerType === 'touch') return;
       pointer = { x: event.clientX, y: event.clientY };
       aim();
     };
@@ -311,16 +313,18 @@ const FoldText = ({
     };
 
     if (refold) {
-      window.addEventListener('pointermove', handleMove, { passive: true });
+      root.addEventListener('pointermove', handleMove, { passive: true });
       window.addEventListener('scroll', handleScroll, { passive: true, capture: true });
-      document.documentElement.addEventListener('pointerleave', handleLeave);
+      root.addEventListener('pointerleave', handleLeave);
+      root.addEventListener('pointercancel', handleLeave);
     }
 
     return () => {
       root.removeEventListener('mouseenter', handleEnter);
-      window.removeEventListener('pointermove', handleMove);
+      root.removeEventListener('pointermove', handleMove);
       window.removeEventListener('scroll', handleScroll, { capture: true });
-      document.documentElement.removeEventListener('pointerleave', handleLeave);
+      root.removeEventListener('pointerleave', handleLeave);
+      root.removeEventListener('pointercancel', handleLeave);
       gsap.ticker.remove(relax);
       scrollObserver?.disconnect();
       timeline?.kill();
