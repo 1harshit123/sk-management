@@ -11,3 +11,13 @@
   height: 100%;
 }
 
+.lanyard-hit-area {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  clip-path: polygon(0 0, 0 0, 0 0);
+}
+

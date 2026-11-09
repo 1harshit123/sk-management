@@ -19,6 +19,7 @@ export default function LanyardCard() {
   const [near, setNear] = useState(false);
   const [entered, setEntered] = useState(false);
   const [eligible, setEligible] = useState(false);
+  const [touchDevice, setTouchDevice] = useState(false);
   const [ready, setReady] = useState(false);
   const [failed, setFailed] = useState(false);
   const [back, setBack] = useState(false);
@@ -46,11 +47,11 @@ export default function LanyardCard() {
 
   useEffect(() => {
     const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
-    const desktop = window.matchMedia('(min-width: 900px) and (hover: hover) and (pointer: fine)');
-    const update = () => setEligible(!motion.matches && desktop.matches);
+    const pointer = window.matchMedia('(pointer: coarse)');
+    const update = () => { setEligible(!motion.matches); setTouchDevice(pointer.matches); };
     update();
     motion.addEventListener('change', update);
-    desktop.addEventListener('change', update);
+    pointer.addEventListener('change', update);
     const stopEntrance = observeViewportEntry(holder.current, () => setEntered(true));
     let observer;
     if ('IntersectionObserver' in window) {
@@ -66,7 +67,7 @@ export default function LanyardCard() {
       observer?.disconnect();
       stopEntrance();
       motion.removeEventListener('change', update);
-      desktop.removeEventListener('change', update);
+      pointer.removeEventListener('change', update);
     };
   }, []);
 
@@ -94,7 +95,7 @@ export default function LanyardCard() {
       </div>
     </div>
     <div className="profile-controls">
-      <p className={`profile-hint ${ready && enhance ? '' : 'is-hidden'}`} aria-hidden="true">Drag to move · Click to flip</p>
+      <p className={`profile-hint ${ready && enhance ? '' : 'is-hidden'}`} aria-hidden="true">{touchDevice ? 'Pull to move · Tap to flip' : 'Drag to move · Click to flip'}</p>
       <button className="profile-flip" type="button" aria-pressed={back} aria-label={back ? 'Show the front of Sandeep Kumai’s card' : 'Show the back of Sandeep Kumai’s card'} onClick={() => setBack(value => !value)}>Flip card <span aria-hidden="true">↻</span></button>
     </div>
   </aside>;

@@ -789,6 +789,10 @@ const Lanyard = ({
     const interaction = container.closest('section') || canvas;
     const previousCursor = interaction.style.cursor;
     canvas.style.pointerEvents = interaction === canvas ? 'auto' : 'none';
+    const hitArea = document.createElement('div');
+    hitArea.className = 'lanyard-hit-area';
+    hitArea.setAttribute('aria-hidden', 'true');
+    container.appendChild(hitArea);
 
     const anisotropy = Math.min(8, renderer.capabilities.getMaxAnisotropy());
     const scene = new THREE.Scene();
@@ -1124,10 +1128,29 @@ const Lanyard = ({
       clampGroup.position.copy(hang);
     };
 
+    const hitCorners = Array.from({ length: 4 }, () => new THREE.Vector3());
+    const updateHitArea = () => {
+      // Only the projected card intercepts touches. The rest of the full-width
+      // canvas stays transparent to normal page scrolling and link activation.
+      const x = layout.width / 2;
+      const y = layout.height / 2;
+      hitArea.style.pointerEvents = ready && visible && settingsRef.current.interactive ? 'auto' : 'none';
+      hitCorners[0].set(-x, y, 0);
+      hitCorners[1].set(x, y, 0);
+      hitCorners[2].set(x, -y, 0);
+      hitCorners[3].set(-x, -y, 0);
+      cardGroup.updateWorldMatrix(true, false);
+      hitCorners.forEach(point => point.applyMatrix4(cardGroup.matrixWorld).project(camera));
+      hitArea.style.clipPath = hitCorners.every(point => Number.isFinite(point.x + point.y + point.z))
+        ? `polygon(${hitCorners.map(point => `${(point.x + 1) * 50}% ${(1 - point.y) * 50}%`).join(', ')})`
+        : 'polygon(0 0, 0 0, 0 0)';
+    };
+
     const render = () => {
       cardGroup.position.copy(sim.body.position);
       cardGroup.quaternion.copy(sim.body.quaternion);
       updateBand();
+      updateHitArea();
       renderer.render(scene, camera);
     };
 
@@ -1220,12 +1243,13 @@ const Lanyard = ({
     };
 
     const onPointerDown = event => {
-      if (!settingsRef.current.interactive || event.button > 0) return;
+      if (!ready || !visible || !settingsRef.current.interactive || event.button > 0 || event.isPrimary === false || sim.grab) return;
       if (event.target?.closest?.('a, button, input, select, textarea, [contenteditable]')) return;
       toPointer(event);
       const hit = pickCard();
       if (!hit) return;
       sim.grab = {
+        pointerId: event.pointerId,
         local: hit.point.clone().sub(sim.body.position).applyQuaternion(sim.body.quaternion.clone().invert()),
         rotation: sim.body.quaternion.clone(),
         reach: hit.distance,
@@ -1240,9 +1264,11 @@ const Lanyard = ({
     };
 
     const onPointerMove = event => {
-      if (!settingsRef.current.interactive) return;
+      if (!ready || !visible || !settingsRef.current.interactive) return;
       toPointer(event);
       if (sim.grab) {
+        if (event.pointerId !== sim.grab.pointerId) return;
+        if (event.cancelable) event.preventDefault();
         if (press && Math.hypot(event.clientX - press.x, event.clientY - press.y) > 6) press = null;
         raycaster.ray.at(sim.grab.reach, sim.grab.target);
         start();
@@ -1254,17 +1280,17 @@ const Lanyard = ({
     };
 
     const onPointerUp = event => {
-      if (!sim.grab) return;
+      if (!sim.grab || event.pointerId !== sim.grab.pointerId) return;
       sim.grab = null;
       if (press && event.type === 'pointerup' && performance.now() - press.time < 450) flip(press.point);
       press = null;
-      interaction.releasePointerCapture?.(event.pointerId);
+      if (interaction.hasPointerCapture?.(event.pointerId) !== false) interaction.releasePointerCapture?.(event.pointerId);
       setCursor(hovering && event.pointerType !== 'touch' ? 'grab' : '');
       start();
     };
 
     const onTouchStart = event => {
-      if (!settingsRef.current.interactive || event.touches.length !== 1) return;
+      if (!ready || !visible || !settingsRef.current.interactive || event.touches.length !== 1) return;
       if (event.target?.closest?.('a, button, input, select, textarea, [contenteditable]')) return;
       toPointer(event.touches[0]);
       if (pickCard()) event.preventDefault();
@@ -1285,7 +1311,8 @@ const Lanyard = ({
     const resize = () => {
       view.width = Math.max(1, container.clientWidth);
       view.height = Math.max(1, container.clientHeight);
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+      const coarsePointer = window.matchMedia?.('(pointer: coarse)').matches;
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, coarsePointer ? 1.5 : 2));
       renderer.setSize(view.width, view.height, false);
       apply();
       render();
@@ -1336,12 +1363,15 @@ const Lanyard = ({
       interaction.removeEventListener('lostpointercapture', onPointerUp);
       interaction.removeEventListener('pointerleave', onPointerLeave);
       interaction.removeEventListener('touchstart', onTouchStart);
+      if (sim.grab && interaction.hasPointerCapture?.(sim.grab.pointerId)) interaction.releasePointerCapture(sim.grab.pointerId);
+      sim.grab = null;
       interaction.style.cursor = previousCursor;
       [bodyMesh, frontMesh, backMesh, ring, clampMesh, eyelet, band].forEach(mesh => mesh.geometry?.dispose());
       [frontMaterial, backMaterial, edgeMaterial, metalMaterial, bandMaterial].forEach(material => material.dispose());
       [frontTexture, backTexture, strapTexture, grain, weave].forEach(texture => texture.dispose());
       environment.dispose();
       renderer.dispose();
+      if (hitArea.parentNode) hitArea.parentNode.removeChild(hitArea);
       if (canvas.parentNode) canvas.parentNode.removeChild(canvas);
     };
   }, []);
