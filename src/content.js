@@ -1,10 +1,11 @@
 // Replace these two placeholders with the company's verified contact details.
-// Contact details are display text only: the site has no forms or backend.
+// Phone and email are display text; LinkedIn opens the supplied public profile.
 export const contact = {
   phone: '[Your phone number]',
   email: '[Your email address]',
   address: 'Ansal Area, Panipat',
   region: 'Haryana, India',
+  linkedin: 'https://www.linkedin.com/in/sandeep-kumai-811111239',
 };
 
 export const services = [

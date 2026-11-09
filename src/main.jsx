@@ -146,6 +146,7 @@ function App() {
             <p className="contact-lead">A great hotel starts with a great team.</p>
             <p>Find experienced, qualified and professionally trained staff for hotel operations, front office, F&amp;B, housekeeping and banquet management. Build a stronger team, improve guest satisfaction and take your business forward.</p>
             <p className="contact-prompt">Contact us today for professional hotel team hiring and staffing.</p>
+            <a className="secondary-button contact-linkedin" href={contact.linkedin} target="_blank" rel="noopener noreferrer" aria-label="Connect with Sandeep Kumai on LinkedIn (opens in a new tab)">Connect on LinkedIn <span aria-hidden="true">↗</span></a>
           </Reveal>
           <Reveal className="contact-details" as="address"><div><h3 className="contact-label">Find us</h3><p>{contact.address}<br />{contact.region}</p></div><div><h3 className="contact-label">Call our team</h3><p>{contact.phone}</p></div><div><h3 className="contact-label">Write to us</h3><p>{contact.email}</p></div></Reveal>
         </div>
