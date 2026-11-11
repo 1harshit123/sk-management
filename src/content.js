@@ -1,7 +1,8 @@
-// Replace the phone placeholder with the company's verified number.
-// Social links open the supplied public profiles.
+// Company contact details and public profiles.
 export const contact = {
-  phone: '[Your phone number]',
+  phone: '90278 85799',
+  phoneHref: 'tel:+919027885799',
+  whatsapp: 'https://wa.me/919027885799',
   email: 'skmanagement020@gmail.com',
   address: 'Ansal Area, Panipat',
   region: 'Haryana, India',

@@ -1,6 +1,7 @@
 import { Component, Suspense, lazy, useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react';
 import './LanyardCard.css';
 import { observeViewportEntry } from '../animation/viewportEntry';
+import { contact } from '../content';
 
 let lanyardModule;
 const loadLanyard = () => lanyardModule ||= import('./Lanyard');
@@ -78,7 +79,7 @@ export default function LanyardCard() {
   return <aside ref={holder} className={`profile-lanyard ${entered ? 'has-entered' : ''} ${ready && enhance ? 'is-interactive' : ''}`} aria-label="Meet Sandeep Kumai">
     <p className="profile-sr-only" aria-live="polite">{back
       ? 'SK Management: pre-opening consultancy, experienced team recruitment, operations and service standards, training and revenue growth.'
-      : 'Sandeep Kumai, Director – Hotel Consultancy & Operations. 18 years of hospitality experience.'}</p>
+      : 'Sandeep Kumai, Director – Hotel Consultancy & Operations. 18 years of hospitality experience.'} Phone: +91 {contact.phone}.</p>
     <div ref={stage} className="profile-stage">
       <div className={`profile-static ${entered && (!eligible || failed) ? 'is-visible' : ''}`} aria-hidden="true">
         <span className="profile-strap"><span>SK MANAGEMENT</span></span>

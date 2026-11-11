@@ -89,6 +89,15 @@ main, section, .hero-copy, .hero-visual, .section-heading > *, .people-heading >
 .header-contact-links a { display: inline-flex; align-items: center; gap: 6px; min-height: 32px; font-size: 12px; font-weight: 500; line-height: 1; color: var(--muted); }
 .header-contact-links a:hover { color: var(--brass); }
 .header-contact-links svg { width: 14px; height: 14px; flex-shrink: 0; }
+.phone-contact { display: inline-flex; align-items: center; gap: 8px; white-space: nowrap; }
+.whatsapp-link { display: inline-flex; align-items: center; justify-content: center; min-width: 28px; min-height: 32px; color: #267849; }
+.whatsapp-link svg { width: 18px; height: 18px; }
+.whatsapp-link:hover { color: #25a65a; }
+.contact-details .phone-contact { color: #e0e4da; }
+.contact-details .whatsapp-link { color: #8bdda8; }
+.header-contact-links > .phone-contact { order: 1; }
+.header-contact-links > a { order: 2; }
+.header-contact-links > a[href^="mailto:"] { order: 0; }
 
 .hero { min-height: 850px; padding-top: 180px; padding-bottom: 72px; display: grid; grid-template-columns: minmax(0, 1.06fr) minmax(0, 1fr); align-items: center; gap: 68px; }
 .hero-copy { position: relative; z-index: 2; }
@@ -245,8 +254,9 @@ main, section, .hero-copy, .hero-visual, .section-heading > *, .people-heading >
 }
 
 @media (max-width: 760px) {
-  html { scroll-padding-top: 118px; }
-  .header-contact-links { justify-content: center; }
+  html { scroll-padding-top: 150px; }
+  .header-contact-links { justify-content: center; flex-wrap: wrap; column-gap: 12px; row-gap: 0; }
+  .header-contact-links > a[href^="mailto:"] { flex-basis: 100%; justify-content: center; }
   body { font-size: 16px; }
   .container, .header-inner { width: calc(100% - 44px); }
   .header-inner { height: 86px; }
@@ -267,7 +277,7 @@ main, section, .hero-copy, .hero-visual, .section-heading > *, .people-heading >
   .mobile-nav a { padding: 17px 0; border-bottom: 1px solid var(--line); font-family: var(--display); font-size: 24px; font-weight: 600; }
   h1 { font-size: clamp(49px, 13vw, 68px); }
   h2 { font-size: clamp(36px, 9.4vw, 50px); }
-  .hero { min-height: 0; padding-top: 150px; padding-bottom: 58px; display: flex; flex-direction: column; align-items: stretch; gap: 38px; }
+  .hero { min-height: 0; padding-top: 182px; padding-bottom: 58px; display: flex; flex-direction: column; align-items: stretch; gap: 38px; }
   .hero-description { max-width: 100%; margin-top: 26px; font-size: 17px; line-height: 1.6; }
   .premium-button, .secondary-button { min-height: 56px; padding: 0 26px; font-size: 15px; }
   .hero-image-frame { width: 100%; height: clamp(340px, 110vw, 560px); min-height: 0; max-height: 560px; aspect-ratio: auto; border-top-left-radius: 105px; }
@@ -323,11 +333,13 @@ main, section, .hero-copy, .hero-visual, .section-heading > *, .people-heading >
 }
 
 @media (max-width: 560px) {
-  html { scroll-padding-top: 150px; }
-  .header-contact-links { flex-wrap: wrap; column-gap: 24px; row-gap: 0; }
-  .header-contact-links a:first-child { flex-basis: 100%; justify-content: center; }
-  .hero { padding-top: 182px; }
   .about-images { grid-template-columns: minmax(0, 1fr); }
+}
+
+@media (max-width: 400px) {
+  html { scroll-padding-top: 182px; }
+  .header-contact-links > .phone-contact { flex-basis: 100%; justify-content: center; }
+  .hero { padding-top: 214px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
