@@ -1,11 +1,12 @@
-// Replace these two placeholders with the company's verified contact details.
-// Phone and email are display text; LinkedIn opens the supplied public profile.
+// Replace the phone placeholder with the company's verified number.
+// Social links open the supplied public profiles.
 export const contact = {
   phone: '[Your phone number]',
-  email: '[Your email address]',
+  email: 'skmanagement020@gmail.com',
   address: 'Ansal Area, Panipat',
   region: 'Haryana, India',
   linkedin: 'https://www.linkedin.com/in/sandeep-kumai-811111239',
+  instagram: 'https://www.instagram.com/skmanagement020/',
 };
 
 export const services = [

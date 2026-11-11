@@ -45,7 +45,7 @@ function Photo({ src, alt, className = '', loading = 'lazy', position, sizes = '
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const navLinks = [['about', 'Our Experience'], ['services', 'Expertise'], ['people', 'Our people'], ['process', 'Our approach']];
+  const navLinks = [['about', 'About Us'], ['services', 'Expertise'], ['people', 'Our people'], ['process', 'Our approach']];
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 36);
@@ -76,6 +76,13 @@ function App() {
         <button className={`menu-button ${menuOpen ? 'open' : ''}`} aria-label={menuOpen ? 'Close navigation' : 'Open navigation'} aria-expanded={menuOpen} aria-controls="mobile-menu" onClick={() => setMenuOpen(!menuOpen)}><span /><span /></button>
       </div>
       <nav id="mobile-menu" className={`mobile-nav ${menuOpen ? 'open' : ''}`} aria-label="Mobile navigation" inert={!menuOpen}>{[...navLinks, ['contact', 'Let’s connect']].map(([id, title]) => <a key={id} href={`#${id}`} onClick={() => setMenuOpen(false)}>{title}</a>)}</nav>
+      <div className="header-contact-bar">
+        <nav className="container header-contact-links" aria-label="Contact and social links">
+          <a href={`mailto:${contact.email}`} aria-label={`Email ${contact.email}`}><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2" /><path d="m3 6 9 7 9-7" /></svg>Email</a>
+          <a href={contact.instagram} target="_blank" rel="noopener noreferrer" aria-label="SK Management on Instagram (opens in a new tab)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" /></svg>Instagram</a>
+          <a href={contact.linkedin} target="_blank" rel="noopener noreferrer" aria-label="Sandeep Kumai on LinkedIn (opens in a new tab)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2" /><path d="M7 10v7m4 0v-7m0 3a3 3 0 0 1 6 0v4" /><circle cx="7" cy="7" r="1" fill="currentColor" stroke="none" /></svg>LinkedIn</a>
+        </nav>
+      </div>
     </header>
 
     <main id="main">
@@ -91,7 +98,7 @@ function App() {
       </section>
 
       <section className="about section-pad container optimized-section" id="about">
-        <div className="about-heading"><h2><FoldText text="Our Experience" splitBy="char" foldAngle={85} duration={0.65} stagger={0.025} creaseShading={0.35} hoverRefold refoldRadius={110} refoldAngle={30} /></h2><Reveal as="p" className="lead" delay={80}>Welcome to professional Hotel Consultancy &amp; Hospitality Management Services.</Reveal></div>
+        <div className="about-heading"><h2><FoldText text="About Us" splitBy="char" foldAngle={85} duration={0.65} stagger={0.025} creaseShading={0.35} hoverRefold refoldRadius={110} refoldAngle={30} /></h2><Reveal as="p" className="lead" delay={80}>Welcome to professional Hotel Consultancy &amp; Hospitality Management Services.</Reveal></div>
         <Reveal className="about-copy">
           <p>With 18 years of hands-on experience in the hospitality industry, Sandeep Kumai, Director – Hotel Consultancy &amp; Operations, brings extensive expertise in hotel operations, General Management, pre-opening projects, team recruitment, food and beverage, banquet management, revenue optimization, and guest satisfaction.</p>
           <p>Our mission is to help hotel owners build experienced, qualified, and dedicated teams while improving operational efficiency and overall business performance.</p>
