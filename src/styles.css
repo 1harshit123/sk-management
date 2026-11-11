@@ -323,6 +323,10 @@ main, section, .hero-copy, .hero-visual, .section-heading > *, .people-heading >
 }
 
 @media (max-width: 560px) {
+  html { scroll-padding-top: 150px; }
+  .header-contact-links { flex-wrap: wrap; column-gap: 24px; row-gap: 0; }
+  .header-contact-links a:first-child { flex-basis: 100%; justify-content: center; }
+  .hero { padding-top: 182px; }
   .about-images { grid-template-columns: minmax(0, 1fr); }
 }
 
