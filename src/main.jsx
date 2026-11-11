@@ -34,7 +34,11 @@ function Brand() {
 }
 
 function PhoneContact() {
-  return <span className="phone-contact"><a href={contact.phoneHref} aria-label={`Call +91 ${contact.phone}`}>{contact.phone}</a><a className="whatsapp-link" href={contact.whatsapp} target="_blank" rel="noopener noreferrer" aria-label={`Chat with SK Management on WhatsApp at +91 ${contact.phone} (opens in a new tab)`}><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.52 3.48A11.91 11.91 0 0 0 12.05 0C5.47 0 .11 5.35.1 11.94c0 2.1.55 4.16 1.6 5.97L0 24l6.25-1.64a11.94 11.94 0 0 0 5.8 1.48h.01C18.64 23.84 24 18.49 24 11.9c0-3.19-1.24-6.18-3.48-8.42ZM12.06 21.82h-.01a9.9 9.9 0 0 1-5.05-1.38l-.36-.21-3.71.97.99-3.62-.24-.37a9.89 9.89 0 0 1-1.52-5.27c0-5.47 4.45-9.92 9.93-9.92 2.65 0 5.14 1.04 7.01 2.91a9.85 9.85 0 0 1 2.9 7.02c0 5.46-4.45 9.91-9.94 9.91Zm5.44-7.42c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.95 1.17-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.4-1.48-.89-.8-1.49-1.78-1.66-2.08-.18-.3-.02-.46.13-.61l.45-.52c.15-.18.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.91-2.21-.25-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.21 5.08 4.5.71.3 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.42.25-.7.25-1.29.18-1.42-.08-.12-.28-.2-.57-.35Z" /></svg></a></span>;
+  return <span className="phone-contact"><a href={contact.phoneHref} aria-label={`Call +91 ${contact.phone}`}><svg className="phone-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.7 2.79a2 2 0 0 1-.45 2.11L8.09 9.89a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.89.33 1.83.57 2.79.7A2 2 0 0 1 22 16.92Z" /></svg>{contact.phone}</a></span>;
+}
+
+function WhatsAppButton() {
+  return <a className="whatsapp-floating" href={contact.whatsapp} target="_blank" rel="noopener noreferrer" aria-label={`Chat with SK Management on WhatsApp at +91 ${contact.phone} (opens in a new tab)`}><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.52 3.48A11.91 11.91 0 0 0 12.05 0C5.47 0 .11 5.35.1 11.94c0 2.1.55 4.16 1.6 5.97L0 24l6.25-1.64a11.94 11.94 0 0 0 5.8 1.48h.01C18.64 23.84 24 18.49 24 11.9c0-3.19-1.24-6.18-3.48-8.42ZM12.06 21.82h-.01a9.9 9.9 0 0 1-5.05-1.38l-.36-.21-3.71.97.99-3.62-.24-.37a9.89 9.89 0 0 1-1.52-5.27c0-5.47 4.45-9.92 9.93-9.92 2.65 0 5.14 1.04 7.01 2.91a9.85 9.85 0 0 1 2.9 7.02c0 5.46-4.45 9.91-9.94 9.91Zm5.44-7.42c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.95 1.17-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.4-1.48-.89-.8-1.49-1.78-1.66-2.08-.18-.3-.02-.46.13-.61l.45-.52c.15-.18.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.91-2.21-.25-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.21 5.08 4.5.71.3 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.42.25-.7.25-1.29.18-1.42-.08-.12-.28-.2-.57-.35Z" /></svg></a>;
 }
 
 function Reveal({ children, className = '', delay = 0, as: Tag = 'div', ...props }) {
@@ -164,6 +168,8 @@ function App() {
         </div>
       </section>
     </main>
+
+    <WhatsAppButton />
 
     <footer className="footer container"><div className="footer-top"><Brand /><p>Building hospitality teams.<br />Preparing for exceptional beginnings.</p></div><div className="footer-bottom"><span>© {new Date().getFullYear()} SK Management. All rights reserved.</span><span>Le Grande Aura Hotel Group</span></div></footer>
   </>;
